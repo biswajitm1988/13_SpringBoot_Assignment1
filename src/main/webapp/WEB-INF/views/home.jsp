@@ -11,9 +11,7 @@
     <title>Spring Boot/Test Assignment 1</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"/>
-    <script type="text/javascript" src="webjars/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="webjars/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="webjars/jquery/jquery-2.1.4.js"></script>
     <style>
         table.mainTable {
             border-collapse: collapse;
