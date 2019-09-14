@@ -8,14 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Spring MVC Assignment 5</title>
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-            crossorigin="anonymous"></script>
+    <title>Spring Boot/Test Assignment 1</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="webjars/webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="webjars/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="webjars/jquery/jquery-2.1.4.js"></script>
     <style>
         table.mainTable {
             border-collapse: collapse;
@@ -48,7 +46,7 @@
     </style>
 </head>
 <body>
-<div align="center">
+<div class="container">
     <table class="mainTable">
         <tr>
             <th>
@@ -70,66 +68,59 @@
         <tr>
             <td><a href="javascript:showDiv('searchSubject')" class="button">Search for a subject</a></td>
         </tr>
-       <!-- <tr>
-            <td><a href="javascript:showDiv('searchSubjectByDur')" class="button">Search Subject By Duration</a></td>
-        </tr>-->
     </table>
     <br>
-
-    <form name="bookForm" id="bookForm">
-        <div id="addBook" style="display: none">
-            <table>
-                <tr>
-                    <th>Book Title</th>
-                    <th>Price</th>
-                    <th>Volume</th>
-                    <th>Published Date</th>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" name="title" id="title" width="20" placeholder="Enter Book Title">
-                    </td>
-                    <td>
-                        <input type="text" name="price" id="price" width="20" placeholder="Enter Book Price">
-                    </td>
-                    <td>
-                        <input type="text" name="volume" id="volume" width="20" placeholder="Enter Book Volume">
-                    </td>
-                    <td>
-                        <input type="text" name="publishDate" id="publishDate" width="20" placeholder="mm/dd/yy">
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <button type="button" onclick="addBook()">Submit</button>
-                    </td>
-                </tr>
-            </table>
+    <div align="center">
+        <form name="bookForm" id="bookForm">
+            <div id="addBook" style="display: none">
+                <table>
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Price</th>
+                        <th>Volume</th>
+                        <th>Published Date</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="title" id="title" width="20" placeholder="Enter Book Title">
+                        </td>
+                        <td>
+                            <input type="text" name="price" id="price" width="20" placeholder="Enter Book Price">
+                        </td>
+                        <td>
+                            <input type="text" name="volume" id="volume" width="20" placeholder="Enter Book Volume">
+                        </td>
+                        <td>
+                            <input type="text" name="publishDate" id="publishDate" width="20" placeholder="mm/dd/yy">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <button type="button" onclick="addBook()">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+        <div id="delSub" style="display: none">
+            Enter the Subject Title To Delete <input type="text" name="deleteSubTitle" id="deleteSubTitle" width="20">
+            <button type="button" onclick="deleteWithSubjectTitle()">Submit</button>
         </div>
-    </form>
-    <div id="delSub" style="display: none">
-        Enter the Subject Title To Delete <input type="text" name="deleteSubTitle" id="deleteSubTitle" width="20">
-        <button type="button" onclick="deleteWithSubjectTitle()">Submit</button>
-    </div>
-    <div id="delBook" style="display: none">
-        Enter the Book Title To Delete <input type="text" name="deleteBookTitle" id="deleteBookTitle" width="20">
-        <button type="button" onclick="deleteWithBookTitle()">Submit</button>
-    </div>
-    <div id="searchBook" style="display: none">
-        Enter the Book Title To Search <input type="text" name="searchBookTitle" id="searchBookTitle" width="20">
-        <button type="button" onclick="searchWithBookTitle()">Submit</button>
-    </div>
-    <div id="searchSubject" style="display: none">
-        Enter the Subject Title To Search <input type="text" name="searchSubTitle" id="searchSubTitle" width="20">
-        <button type="button" onclick="searchWithSubTitle()">Submit</button>
-    </div>
-    <div id="searchSubjectByDur" style="display: none">
-        Enter the Subject Duration in Hours To Search <input type="text" name="searchDuration" id="searchDuration" width="20">
-        <button type="button" onclick="searchSubjectByDur()">Submit</button>
-    </div>
-    <br>
-    <div id="response" style="display: none">
-
+        <div id="delBook" style="display: none">
+            Enter the Book Title To Delete <input type="text" name="deleteBookTitle" id="deleteBookTitle" width="20">
+            <button type="button" onclick="deleteWithBookTitle()">Submit</button>
+        </div>
+        <div id="searchBook" style="display: none">
+            Enter the Book Title To Search <input type="text" name="searchBookTitle" id="searchBookTitle" width="20">
+            <button type="button" onclick="searchWithBookTitle()">Submit</button>
+        </div>
+        <div id="searchSubject" style="display: none">
+            Enter the Subject Title To Search <input type="text" name="searchSubTitle" id="searchSubTitle" width="20">
+            <button type="button" onclick="searchWithSubTitle()">Submit</button>
+        </div>
+        <br>
+        <div id="response" style="display: none">
+        </div>
     </div>
 
 </div>
@@ -143,7 +134,6 @@
         $("#delSub").hide();
         $("#searchBook").hide();
         $("#searchSubject").hide();
-        $("#searchSubjectByDur").hide();
         $("#response").hide();
         $('#' + divId).show();
     }
@@ -158,28 +148,6 @@
                 type: "GET",
                 url: "${pageContext.request.contextPath}/searchWithSubTitle",
                 data: {"searchSubTitle": $("#searchSubTitle").val()},
-                success: function (response) {
-                    $("#response").html(response);
-                    $("#response").show();
-                },
-                error: function (errorThrown) {
-                    $("#response").html(errorThrown);
-                    $("#response").show();
-                }
-            });
-        }
-    }
-
-    function searchSubjectByDur() {
-        const inputValue = $("#searchDuration").val();
-        console.log("input >>" + inputValue + "<< input length >>" + inputValue.length);
-        if (inputValue.length === 0) {
-            alert(errMsg);
-        } else {
-            $.ajax({
-                type: "GET",
-                url: "${pageContext.request.contextPath}/searchSubjectByDur",
-                data: {"searchDuration": $("#searchDuration").val()},
                 success: function (response) {
                     $("#response").html(response);
                     $("#response").show();
